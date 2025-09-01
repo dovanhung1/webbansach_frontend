@@ -1,0 +1,22 @@
+/* Responsive 3D styles
+   This file was added to satisfy an import from index.css.
+   Add or adjust responsive rules here as needed. */
+
+/* Example breakpoints */
+@media (max-width: 1024px) {
+  /* Add tablet-specific overrides here */
+}
+
+@media (max-width: 768px) {
+  /* Add mobile-specific overrides here */
+}
+
+@media (prefers-reduced-motion: reduce) {
+  /* Reduce motion for users who prefer it */
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}

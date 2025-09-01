@@ -1,0 +1,207 @@
+/* Banner 3D Styles */
+.banner-3d {
+  background: linear-gradient(
+    135deg,
+    #e9f2ff 0%,
+    #d7e7ff 30%,
+    #c2dbff 65%,
+    #b3d3ff 100%
+  ) !important;
+  position: relative;
+  overflow: hidden;
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.banner-3d::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><radialGradient id="a" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="%23ffffff" stop-opacity="0.1"/><stop offset="100%" stop-color="%23ffffff" stop-opacity="0"/></radialGradient></defs><circle cx="200" cy="200" r="100" fill="url(%23a)"/><circle cx="800" cy="300" r="150" fill="url(%23a)"/><circle cx="400" cy="700" r="120" fill="url(%23a)"/><circle cx="700" cy="800" r="80" fill="url(%23a)"/><polygon points="100,500 200,400 300,500 200,600" fill="url(%23a)"/><polygon points="600,100 750,50 800,200 650,250" fill="url(%23a)"/></svg>');
+  background-size: cover;
+  opacity: 0.3;
+  animation: float 20s ease-in-out infinite;
+}
+
+.banner-3d::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    0deg,
+    rgba(6, 13, 26, 0.22),
+    rgba(6, 13, 26, 0.12)
+  );
+  backdrop-filter: blur(1px);
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-10px) rotate(1deg);
+  }
+  50% {
+    transform: translateY(-5px) rotate(-1deg);
+  }
+  75% {
+    transform: translateY(-15px) rotate(0.5deg);
+  }
+}
+
+.banner-content-3d {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  color: #ffffff;
+  padding: 3rem;
+  backdrop-filter: blur(10px);
+  background: rgba(11, 18, 32, 0.35);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(6, 13, 26, 0.25);
+  transform: translateZ(0);
+  transition: all 0.3s ease;
+}
+
+.banner-content-3d:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 14px 46px rgba(6, 13, 26, 0.35);
+}
+
+.banner-title-3d {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  text-shadow: 0 2px 12px rgba(13, 110, 253, 0.25);
+  background: linear-gradient(45deg, #0d6efd, #6ea8fe);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0%,
+  100% {
+    background-position: -200% center;
+  }
+  50% {
+    background-position: 200% center;
+  }
+}
+
+.banner-quote-3d {
+  font-size: 1.2rem;
+  font-style: italic;
+  margin-bottom: 0.5rem;
+  opacity: 0.8;
+  text-shadow: 0 1px 8px rgba(13, 110, 253, 0.25);
+  color: #e9f2ff;
+}
+
+.banner-author-3d {
+  font-size: 1rem;
+  margin-bottom: 2rem;
+  opacity: 0.7;
+  font-weight: 500;
+  text-shadow: 0 1px 8px rgba(13, 110, 253, 0.25);
+  color: #cfe2ff;
+}
+
+.banner-btn-3d {
+  background: linear-gradient(135deg, #0d6efd, #6f42c1) !important;
+  border: none !important;
+  padding: 1rem 2rem !important;
+  font-size: 1.1rem !important;
+  font-weight: 600 !important;
+  border-radius: 50px !important;
+  color: white !important;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 18px rgba(13, 110, 253, 0.45);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.banner-btn-3d::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  transition: left 0.5s;
+}
+
+.banner-btn-3d:hover {
+  transform: translateY(-3px) scale(1.05) !important;
+  box-shadow: 0 8px 24px rgba(13, 110, 253, 0.6) !important;
+  background: linear-gradient(135deg, #6f42c1, #0d6efd) !important;
+}
+
+.banner-btn-3d:hover::before {
+  left: 100%;
+}
+
+.banner-btn-3d:active {
+  transform: translateY(-1px) scale(1.02) !important;
+}
+
+/* Floating elements */
+.floating-element {
+  position: absolute;
+  opacity: 0.1;
+  animation: floatRandom 15s ease-in-out infinite;
+}
+
+.floating-element:nth-child(1) {
+  top: 10%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.floating-element:nth-child(2) {
+  top: 20%;
+  right: 15%;
+  animation-delay: 2s;
+}
+
+.floating-element:nth-child(3) {
+  bottom: 15%;
+  left: 20%;
+  animation-delay: 4s;
+}
+
+@keyframes floatRandom {
+  0%,
+  100% {
+    transform: translateY(0px) translateX(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-20px) translateX(10px) rotate(5deg);
+  }
+  50% {
+    transform: translateY(-10px) translateX(-15px) rotate(-3deg);
+  }
+  75% {
+    transform: translateY(-25px) translateX(5px) rotate(2deg);
+  }
+}

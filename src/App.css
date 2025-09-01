@@ -1,4 +1,4 @@
-.App {
+.bg-primary {
   text-align: center;
 }
 
@@ -35,4 +35,35 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+/* Font Awesome Icons */
+.fas,
+.fa-solid {
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.navbar-nav .nav-link .fas,
+.navbar-nav .nav-link .fa-solid {
+  margin-right: 5px;
+}
+
+/* Đảm bảo icons hiển thị cho Font Awesome 6 */
+.fa-cart-shopping,
+.fa-user {
+  display: inline-block !important;
+  font-family: "Font Awesome 6 Free" !important;
+  font-weight: 900 !important;
+}
+
+/* Import 3D Styles */
+@import './styles/index.css';
+
+/* Thêm hover effect cho icons cũ */
+.navbar-nav .nav-link:hover .fas,
+.navbar-nav .nav-link:hover .fa-solid {
+  color: #007bff;
+  transform: scale(1.1);
+  transition: all 0.2s ease;
 }

@@ -1,0 +1,237 @@
+/* 3D Navbar Styles */
+.navbar .collapse,
+.navbar .collapsing {
+  visibility: visible !important; /* Fix Tailwind/DaisyUI 'collapse' utility conflict */
+}
+
+.navbar-3d {
+  background: linear-gradient(
+    135deg,
+    #ffffff 0%,
+    #f8fafc 50%,
+    #eef2f7 100%
+  ) !important;
+  box-shadow: 0 8px 32px rgba(15, 23, 42, 0.08);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  position: relative;
+  overflow: visible;
+  z-index: 1000;
+}
+
+/* Hard override to ensure text is visible in navbar */
+.navbar-3d,
+.navbar-3d *:not(svg):not(path) {
+  color: #0f172a !important;
+}
+
+/* Ensure navbar text is always visible */
+.navbar-3d .navbar-brand-3d,
+.navbar-3d .navbar-nav .nav-link-3d,
+.navbar-3d .dropdown-menu-3d .dropdown-item-3d {
+  color: #0f172a !important; /* slate-900 */
+  position: relative;
+  z-index: 1;
+}
+
+/* Keep content above decorative layers to avoid washing out glyphs/accents */
+.navbar-3d .container-fluid,
+.navbar-3d .navbar-brand-3d,
+.navbar-3d .nav-link-3d,
+.navbar-3d .dropdown-item-3d {
+  position: relative;
+  z-index: 1;
+  color: #0f172a !important;
+}
+
+.navbar-3d::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: left 0.5s;
+  z-index: -1; /* keep shine behind content */
+}
+
+.navbar-3d:hover::before {
+  left: 100%;
+}
+
+.navbar-brand-3d {
+  color: #0f172a !important; /* slate-900 */
+  font-weight: bold;
+  font-size: 1.5rem;
+  text-shadow: 1px 1px 2px rgba(21, 101, 192, 0.2);
+  transform: perspective(500px) rotateX(15deg);
+  transition: all 0.3s ease;
+}
+
+.navbar-brand-3d:hover {
+  transform: perspective(500px) rotateX(0deg) scale(1.1);
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
+}
+
+.nav-link-3d {
+  color: #0f172a !important; /* slate-900 */
+  font-weight: 500;
+  position: relative;
+  padding: 0.8rem 1.2rem !important;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  transform: translateZ(0);
+}
+
+.nav-link-3d::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(15, 23, 42, 0.06); /* slate-900 at low opacity */
+  border-radius: 8px;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+  z-index: -1;
+}
+
+.nav-link-3d:hover::before {
+  transform: scaleX(1);
+}
+
+.nav-link-3d:hover {
+  transform: translateY(-2px) translateZ(10px);
+  box-shadow: 0 4px 15px rgba(15, 23, 42, 0.12);
+  color: #1e293b !important; /* slate-800 */
+}
+
+.dropdown-menu-3d {
+  background: rgba(255, 255, 255, 0.95) !important;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  transform: translateY(10px);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 1050 !important;
+  position: absolute !important;
+}
+
+.dropdown:hover .dropdown-menu-3d,
+.dropdown-menu-3d.show {
+  transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
+  display: block !important;
+}
+
+.dropdown-item-3d {
+  padding: 0.75rem 1.5rem;
+  transition: all 0.2s ease;
+  border-radius: 8px;
+  margin: 2px 8px;
+  color: #0f172a !important;
+}
+
+.dropdown-item-3d:hover {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+  color: white !important;
+  transform: translateX(5px);
+}
+
+.search-container-3d {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.search-input-3d {
+  background: rgba(255, 255, 255, 0.7) !important;
+  border: 1px solid rgba(21, 101, 192, 0.3) !important;
+  border-radius: 25px !important;
+  color: #1565c0 !important;
+  padding: 0.6rem 1.2rem !important;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.search-input-3d::placeholder {
+  color: rgba(21, 101, 192, 0.6) !important;
+}
+
+.search-input-3d:focus {
+  background: rgba(255, 255, 255, 0.9) !important;
+  border-color: rgba(21, 101, 192, 0.5) !important;
+  box-shadow: 0 0 20px rgba(21, 101, 192, 0.2) !important;
+  transform: scale(1.05);
+}
+
+.search-btn-3d {
+  background: linear-gradient(135deg, #81c784 0%, #66bb6a 100%) !important;
+  border: none !important;
+  border-radius: 25px !important;
+  padding: 0.6rem 1.5rem !important;
+  color: white !important;
+  font-weight: 500;
+  box-shadow: 0 4px 15px rgba(129, 199, 132, 0.3);
+  transition: all 0.3s ease;
+  transform: translateZ(0);
+}
+
+.search-btn-3d:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 6px 20px rgba(129, 199, 132, 0.4);
+  background: linear-gradient(135deg, #66bb6a 0%, #81c784 100%) !important;
+}
+
+.icon-3d {
+  transition: all 0.3s ease;
+  filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.3));
+}
+
+.nav-link-3d:hover .icon-3d {
+  transform: scale(1.2) rotateY(360deg);
+}
+
+.cart-icon-3d,
+.user-icon-3d {
+  color: #0f172a !important; /* slate-900 */
+  font-size: 1.3rem;
+  padding: 0.8rem !important;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.cart-icon-3d:hover,
+.user-icon-3d:hover {
+  background: rgba(15, 23, 42, 0.08);
+  transform: scale(1.1) rotateZ(10deg);
+  box-shadow: 0 4px 15px rgba(15, 23, 42, 0.12);
+}
+
+.navbar-toggler-3d {
+  border: 2px solid rgba(21, 101, 192, 0.5) !important;
+  border-radius: 8px;
+  padding: 0.5rem;
+}
+
+.navbar-toggler-3d:focus {
+  box-shadow: 0 0 20px rgba(21, 101, 192, 0.3) !important;
+}
+
+.navbar-toggler-icon-3d {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%2821, 101, 192, 0.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='m4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+}

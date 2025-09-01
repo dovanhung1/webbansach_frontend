@@ -1,0 +1,67 @@
+/* Product card styles */
+
+.product-col {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.product-card {
+  border: none;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  background: #fff;
+}
+
+.product-col:hover .product-card {
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 0 16px 28px rgba(0, 0, 0, 0.12);
+}
+
+.product-card-img {
+  height: 220px;
+  object-fit: cover;
+}
+
+.product-title {
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.3;
+  min-height: 2.6em;
+}
+
+.product-price {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.product-price .original-price {
+  color: #6c757d;
+}
+
+.product-price .discounted-price {
+  color: #dc3545;
+  font-weight: 800;
+}
+
+.product-actions .btn {
+  width: 100%;
+  border-radius: 0.75rem;
+}
+
+/* Smooth fade + slight slide-in for main image when switching */
+.fade-slide-in {
+  animation: fadeSlideIn 300ms ease both;
+}
+
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
